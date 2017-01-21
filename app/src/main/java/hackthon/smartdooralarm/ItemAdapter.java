@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
 
-    private static ArrayList<Item> ItemList;
+    private ArrayList<Item> ItemList;
     private Context mContext;
 
     // Constructor
@@ -26,6 +26,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         this.mContext = ct;
 
     }
+
+    public ArrayList<Item> getItemList(){ return ItemList; }
 
     @Override
     public int getItemCount() {

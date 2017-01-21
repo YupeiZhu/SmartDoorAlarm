@@ -6,7 +6,7 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 
 public class ItemTouchHelperCallback extends ItemTouchHelper.SimpleCallback{
     private final ItemAdapter itemAdapter;
-
+    public String uid;
 
     /**
      * Constructor
@@ -57,10 +57,9 @@ public class ItemTouchHelperCallback extends ItemTouchHelper.SimpleCallback{
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
         System.out.println("Item touch helper: item swiped at pos "+ viewHolder.getAdapterPosition());
+        uid = itemAdapter.getItemUid((ItemAdapter.ItemViewHolder)viewHolder);
         itemAdapter.getItemList().remove(viewHolder.getAdapterPosition());
         itemAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
-        //itemAdapter.notifyItemRangeChanged(direction, itemAdapter.getItemList().size());
-
-
+        itemAdapter.getFirebaseInstance().child(uid).setValue(null);
     }
 }

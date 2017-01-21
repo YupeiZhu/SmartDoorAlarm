@@ -26,13 +26,15 @@
         android:layout_alignTop="@+id/button"
         android:text="Button" />
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/picList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/button"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true" >
+
+    </android.support.v7.widget.RecyclerView>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -45,7 +47,7 @@
             android:id="@+id/bt_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="取消选择" />
+            android:text="" />
 
         <TextView
             android:id="@+id/tv_sum"
@@ -53,12 +55,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="共计" />
+            android:text="" />
 
         <Button
             android:id="@+id/bt_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="删除" />
+            android:text="" />
     </LinearLayout>
 </RelativeLayout>

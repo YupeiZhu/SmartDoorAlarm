@@ -1,6 +1,7 @@
 package hackthon.smartdooralarm;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,33 +17,25 @@ import java.util.ArrayList;
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
 
     private static ArrayList<Item> ItemList;
-    private ArrayList<ItemViewHolder> cards;
-    private final Activity context;
-
-    private static final int PLANNED_COLOR = Color.BLUE;
-    private static final int CURRENT_COLOR = Color.GREEN;
-    private static final int PAST_COLOR = Color.RED;
+    private Context mContext;
 
     // Constructor
-    public ItemAdapter(Activity context, ArrayList<Item> contactList) {
+    public ItemAdapter(Context ct, ArrayList<Item> list) {
 
-        ItemList = contactList;
-        this.context = context;
-        this.cards = new ArrayList<>();
+        this.ItemList = list;
+        this.mContext = ct;
 
     }
 
     @Override
     public int getItemCount() {
-
         return ItemList.size();
-
     }
 
     @Override
-    public void onBindViewHolder( final ItemViewHolder contactViewHolder, int i ) {
+    public void onBindViewHolder( final ItemViewHolder contactViewHolder, int position ) {
 
-        Item ci = ItemList.get( i );
+        Item ci = ItemList.get( position );
         contactViewHolder.setItem( ci );
       
     }
@@ -56,10 +49,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return new ItemViewHolder( itemView, ItemList.get(i) );
     }
 
-    public void removeOnSwipe(int position) {
-        ItemList.remove(position);
-        notifyItemRemoved(position);
-    }
+
 
     // Inner class ViewHolder
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
@@ -78,18 +68,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             vDes = (TextView) v.findViewById( R.id.des );
 
             setItem(data);
-
-
         }
+
         public void setItem(Item data){
             this.vUid.setText(data.getUid());
             this.vImg.setImageBitmap(data.getPic());
             this.vDes.setText(data.getDes());
-
-
         }
-
-
     }
 
 }

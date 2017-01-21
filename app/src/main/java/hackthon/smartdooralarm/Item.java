@@ -10,21 +10,6 @@ public class Item {
     private Bitmap pic;
     private String des;
 
-/*    private ArrayList<LoadListener> listeners;
-
-    private ValueItemListener updater;
-    private DatabaseReference database;*/
-
-    /* Constants */
-
-/*    private static final byte TRUE = 1;
-    private static final byte FALSE = 0;
-
-    static final String UID = "uid";
-    private static final String NAME = "pic";
-    private static final String DES = "des";
-*/
-
     /* Ctors */
 
     public Item(String uid, Bitmap pic, String des) {
@@ -35,14 +20,6 @@ public class Item {
 
     }
 
-    /**
-     * Checks if this is equal to a given object. It will be equal if the object is another
-     * Item with the same UID.
-     *
-     * @param obj Object to be compared.
-     * @return true if this and obj represent the same object.
-     *         false otherwise.
-     */
     @Override
     public boolean equals( Object obj ) {
 
@@ -61,11 +38,7 @@ public class Item {
     }
 
     /* Getters */
-    public String getUid() {
-
-        return uid;
-
-    }
+    public String getUid() { return uid; }
 
     public Bitmap getPic() {
         return pic;

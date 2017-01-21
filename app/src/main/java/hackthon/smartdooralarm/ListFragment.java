@@ -15,8 +15,6 @@ public class ListFragment extends Fragment implements AdapterView.OnItemClickLis
     RecyclerView recList;
     boolean ready;
 
-    private static String TAG = "ListFragment";
-
     /**
      * Default constructor
      */
@@ -36,7 +34,6 @@ public class ListFragment extends Fragment implements AdapterView.OnItemClickLis
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        Log.v( TAG, "MYLISTFRAGMENT ONCREATE Called" );
         // Get the view of the fragment
         View view = inflater.inflate(R.layout.activity_main, container, false);
 
@@ -111,7 +108,6 @@ public class ListFragment extends Fragment implements AdapterView.OnItemClickLis
     public void onResume()
     {
         super.onResume();
-        Log.v(TAG, "ON resume Called");
     }
     
 }
